@@ -4,39 +4,9 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {createStore} from 'redux';
+import reduce from './reducers/reduce';
 
-// STORE -> Globalized state(s)
-
-// ACTION -> change state 'how many todo items'
-const count_todo = () => {
-  return {
-    type: 'ADD';
-  }
-}
-
-const rm_todo = () => {
-  return {
-    type: 'SUB'
-  }
-}
-
-// REDUCER -> how actions transform state to next
-const curr_total = (state = 0, action) => {
-  switch(action.type){
-    case "ADD":
-      return state + 1;
-    case "SUB":
-      return state -1;
-  }
-}
-
-let store = createStore(curr_total);
-
-// Display items in amount in console
-store.subscribe(() => console.log(store.getState());
-
-// DISPATCH -> runs action
-store.dispatch(count_todo());
+const store = createStore(reduce);
 
 ReactDOM.render(
   <React.StrictMode>
