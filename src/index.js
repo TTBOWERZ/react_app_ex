@@ -9,13 +9,14 @@ import { Provider } from 'react-redux';
 
 const store = createStore(
   reduce, 
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__() // added for conveinence
   );
 
 ReactDOM.render(
+  <React>
   <Provider store={store}>
     <App />
-  </Provider>,
+  </Provider>
+  </React>,
   document.getElementById('root')
 );
 
