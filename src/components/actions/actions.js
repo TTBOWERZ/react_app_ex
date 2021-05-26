@@ -1,15 +1,15 @@
 
 // ACTION -> change state 'how many todo items'
-const count_todo = () => {
+const count = () => {
   return {
-    type: 'ADD';
+    type: 'ADD'
   }
 }
 
-const rm_todo = () => {
+const del = () => {
   return {
     type: 'SUB'
   }
 }
 
-export default ;
+export {count, del};

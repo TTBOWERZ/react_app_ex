@@ -1,12 +1,16 @@
 import React from 'react';
+import {useDispatch} from 'react-redux';
+import {del} from './actions/actions';
 
 /*
   Todo - handles todo list objects
 */
 
 const Todo = ({text, todo, todos, setTodos}) => {
+  const dispatch = useDispatch();
   // events
   const deleteHandler = () => { // filters out deleted items from todo list
+    dispatch(del);
     setTodos(todos.filter((el) => el.id !== todo.id));
   };
   

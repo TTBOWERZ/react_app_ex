@@ -1,5 +1,6 @@
 import './App.css';
 import React, { useState, useEffect } from "react";
+import { useSelector } from 'react-redux';
 
 // componenet imports
 import Form from "./components/Form";
@@ -27,6 +28,9 @@ function App() {
         break;
     }
   };
+  
+  const counter = useSelector(state => state.reduce);
+   
   // run once on start
   useEffect(() => {
     getLocalTodos();

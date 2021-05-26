@@ -1,13 +1,17 @@
 import React from "react";
+import {useDispatch} from 'react-redux';
+import {count} from './actions/actions';
 /*
   Form - provides Todo app with ability to filter and add items to Todo List
 */
 const Form = ({ setInputText, todos, setTodos, inputText, setStatus }) => {
+  const dispatch = useDispatch();
   // event input handler
   const inputTextHandler = (e) => {
     setInputText(e.target.value); // input text assigned
   };
   const submitTodoHandler = (e) => {
+    dispatch(count());
     e.preventDefault();
     setTodos([
       ...todos, 
@@ -18,6 +22,7 @@ const Form = ({ setInputText, todos, setTodos, inputText, setStatus }) => {
   const statusHandler = (e) => {
     setStatus(e.target.value);
   };
+  
   return(
     <form>
       <input 
